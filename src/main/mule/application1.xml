@@ -26,6 +26,10 @@ output application/json
 	{
 		"id" : "003",
 		"name" : "Harikumarkayala"
+	},
+	{
+	        "id" : "004",
+		"name" : "satish"
 	}
 ]]]></ee:set-payload>
 			</ee:message>
