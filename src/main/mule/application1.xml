@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="application1Flow" doc:id="75e90141-e5b2-4063-a2d7-c9867a72c142" >
+		<http:listener doc:name="Listener" doc:id="3d14a043-b3f4-4f8d-98ca-b9262b56aff2" config-ref="HTTP_Listener_config" path="/application1"/>
+		<ee:transform doc:name="Transform Message" doc:id="35b6ea40-13a1-4bdd-9d91-e23c46e24389" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[
+	{
+		"id" :"001",
+		"name": "sekhar"
+		
+	},
+	   
+	{
+		 "id" :"002",
+		 "name" :"gangaraju"
+	},
+	{
+		"id" : "003",
+		"name" : "Harikumarkayala"
+	}
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
